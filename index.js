@@ -3,11 +3,15 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
+const exphbs = require("express-handlebars");
 
 const tracker = express();
 
+tracker.engine("hbs", exphbs({ extname: "hbs" }));
+tracker.set("view engine", "hbs");
+
 tracker.get("/", (req, res) => {
-  res.send("Task Tracker application server");
+  res.render("home");
 });
 
 tracker.listen(5000, () => {
