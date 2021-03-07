@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/Emmanuel-Gumede/task-tracker/issues"
   },
-  "homepage": "https://github.com/Emmanuel-Gumede/task-tracker#readme"
+  "homepage": "https://github.com/Emmanuel-Gumede/task-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1"
+  }
 }
