@@ -1,0 +1,29 @@
+.app-header {
+  display: grid;
+  grid-template-columns: 4fr 4fr 2fr 1fr;
+  grid-template-areas: "logo menu user login";
+  width: 100%;
+  height: 4rem;
+}
+
+.header-logo {
+  grid-area: logo;
+  align-self: center;
+}
+
+.header-login {
+  grid-area: login;
+  align-self: center;
+}
+
+.header-login div {
+  display: flex;
+  width: 6rem;
+  height: 2.5rem;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(45, 36, 36, 1);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 0.5rem;
+}

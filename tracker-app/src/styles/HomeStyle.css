@@ -1,0 +1,44 @@
+.app-home {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.home-hero {
+  width: 100%;
+  height: 24rem;
+  margin: 0 auto;
+  background-color: rgba(224, 192, 151, 1);
+  color: rgba(45, 36, 36, 1);
+  border-radius: 1rem 1rem 0 0;
+  padding: 4rem;
+}
+
+.home-hero p {
+  font-size: 3.5rem;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas:
+    "heading heading heading"
+    "inform1 inform2 inform3";
+  gap: 1rem;
+  background-color: rgba(224, 192, 151, 1);
+  border-radius: 0 0 1rem 1rem;
+  padding: 1rem;
+}
+
+.home-content-title {
+  grid-area: heading;
+  margin-left: 0.25rem;
+  color: rgba(45, 36, 36, 1);
+}
+
+.home-content div {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 1rem;
+}

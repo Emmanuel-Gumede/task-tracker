@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Tasks from "./pages/Tasks";
 import Reports from "./pages/Reports";
+import Feature from "./pages/Feature";
+import Welcome from "./pages/Welcome";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="tasks" element={<Tasks />}>
           <Route path="reports" element={<Reports />} />
         </Route>
+        <Route path="feature" element={<Feature />} />
+        <Route path="welcome" element={<Welcome />} />
       </Route>
     </Routes>
   );
