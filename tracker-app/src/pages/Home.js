@@ -1,4 +1,5 @@
 import "../styles/HomeStyle.css";
+import logo from "../images/logo01.png";
 
 const Home = () => {
   return (
@@ -24,10 +25,21 @@ const HeroSection = () => {
 const HomeContent = () => {
   return (
     <div className="home-content">
-      <h2 className="home-content-title">Benefits:</h2>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div>
+        <img src={logo} alt="check" />
+        <h1>Organize Work</h1>
+        <span className="home-content-dot"></span>
+      </div>
+      <div>
+        <img src={logo} alt="check" />
+        <h1>Collaborate Effectively</h1>
+        <span className="home-content-dot"></span>
+      </div>
+      <div>
+        <img src={logo} alt="check" />
+        <h1>Prioritize Tasks</h1>
+        <span className="home-content-dot"></span>
+      </div>
     </div>
   );
 };

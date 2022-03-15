@@ -1,15 +1,16 @@
 import { createContext, useState } from "react";
 
-const PageContext = createContext("");
+const PageContext = createContext({});
 
 export const PageProvider = ({ children }) => {
-  const [visible, setVisible] = useState(false);
+  const [show, setShow] = useState(false);
 
-  return (
-    <PageContext.Provider value={{ visible, setVisible }}>
-      {children}
-    </PageContext.Provider>
-  );
+  const value = {
+    show,
+    setShow,
+  };
+
+  return <PageContext.Provider value={value}>{children}</PageContext.Provider>;
 };
 
 export default PageContext;

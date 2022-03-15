@@ -11,6 +11,17 @@
   align-self: center;
 }
 
+.logo-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-brand img {
+  width: 4rem;
+  height: 4rem;
+}
+
 .header-login {
   grid-area: login;
   align-self: center;

@@ -15,11 +15,12 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+
+        <Route path="welcome" element={<Welcome />} />
         <Route path="tasks" element={<Tasks />}>
           <Route path="reports" element={<Reports />} />
         </Route>
         <Route path="feature" element={<Feature />} />
-        <Route path="welcome" element={<Welcome />} />
       </Route>
     </Routes>
   );
