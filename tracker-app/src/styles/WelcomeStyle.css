@@ -1,0 +1,39 @@
+.app-welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40rem;
+  margin: 2rem 0;
+}
+
+.app-welcome img {
+  width: 8rem;
+}
+
+.app-welcome h1 {
+  font-size: 3rem;
+  margin: 2rem 0;
+}
+
+.app-welcome h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.app-welcome p {
+  font-size: 1.5rem;
+}
+
+.app-welcome button {
+  width: 16rem;
+  height: 4rem;
+  margin-top: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #009cff;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 1rem;
+  border: 4px solid rgba(245, 121, 0, 1);
+}

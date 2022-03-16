@@ -3,10 +3,10 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./styles/LayoutStyle.css";
 
-const Layout = () => {
+const Layout = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <main className="app-container">
-      <Header />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Outlet />
       <Footer />
     </main>

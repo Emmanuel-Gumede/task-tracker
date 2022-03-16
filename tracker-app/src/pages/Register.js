@@ -1,10 +1,15 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Navigate, NavLink } from "react-router-dom";
 import loginIcon from "../images/login01.png";
 import "../styles/RegisterStyle.css";
+import { AuthContext } from "../App";
 
 const Register = () => {
-  return (
+  const { state } = React.useContext(AuthContext);
+
+  return state.isLoggedIn ? (
+    <Navigate to="/welcome" />
+  ) : (
     <section className="app-register">
       <RegisterTitle />
       <RegisterForm />
@@ -25,6 +30,7 @@ const RegisterTitle = () => {
 };
 
 const RegisterForm = () => {
+  const { dispatch } = React.useContext(AuthContext);
   const initialValues = {
     fullname: "",
     email: "",
@@ -48,6 +54,7 @@ const RegisterForm = () => {
     e.preventDefault();
     console.log(formData);
     setFormData(initialValues);
+    dispatch({ type: "LOGGED_IN", payload: "" });
   };
 
   return (

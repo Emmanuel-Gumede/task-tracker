@@ -1,12 +1,17 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import logoImage from "../images/logo01.png";
 import "../styles/HeaderStyle.css";
+import { AuthContext } from "../App";
 
 const Header = () => {
+  const { state } = React.useContext(AuthContext);
+  console.log(state.isLoggedIn);
   return (
     <section className="app-header">
       <Logo />
-      <LoginBtn />
+      <HeadBanner />
+      {state.isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
     </section>
   );
 };
@@ -21,7 +26,7 @@ const Logo = () => {
           <img src={logoImage} alt="logo" />
         </div>
         <div>
-          <h1>MISEN</h1>
+          <h1>OKUHLE</h1>
           <h3>Task Tracker</h3>
         </div>
       </NavLink>
@@ -29,10 +34,38 @@ const Logo = () => {
   );
 };
 
-const LoginBtn = () => {
+const HeadBanner = () => {
   return (
-    <NavLink to="/login" className="header-login">
-      <div>Sign In</div>
-    </NavLink>
+    <div className="header-banner">
+      <h2>No. 1 Task Management Tool</h2>
+    </div>
+  );
+};
+
+const LoginBtn = () => {
+  const date = new Date(Date.now());
+  return (
+    <div className="header-login">
+      <NavLink to="/login" className="header-login-btn">
+        <span>Sign In</span>
+      </NavLink>
+      <div className="header-date">{date.toDateString()}</div>
+    </div>
+  );
+};
+
+const LogoutBtn = () => {
+  const { dispatch } = React.useContext(AuthContext);
+  const date = new Date(Date.now());
+  const handleClick = () => {
+    dispatch({ type: "LOGGED_OUT", payload: "" });
+  };
+  return (
+    <div className="header-login">
+      <NavLink to="/" className="header-login-btn" onClick={handleClick}>
+        <span>Sign Out</span>
+      </NavLink>
+      <div className="header-date">{date.toDateString()}</div>
+    </div>
   );
 };

@@ -1,5 +1,7 @@
 import "../styles/HomeStyle.css";
 import logo from "../images/logo01.png";
+import leftQuote from "../images/quote01.png";
+import rightQuote from "../images/quote02.png";
 
 const Home = () => {
   return (
@@ -15,9 +17,14 @@ export default Home;
 const HeroSection = () => {
   return (
     <div className="home-hero">
-      <p>"Keep track of</p>
+      <p>
+        <img src={leftQuote} alt="quote" /> Keep track of
+      </p>
       <p>all your important tasks</p>
-      <p>and deadlines..."</p>
+      <p>
+        and deadlines...
+        <img src={rightQuote} alt="quote" />
+      </p>
     </div>
   );
 };
