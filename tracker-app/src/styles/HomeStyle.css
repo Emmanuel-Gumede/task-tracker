@@ -14,7 +14,7 @@
 }
 
 .home-hero img {
-  width: 4rem;
+  width: 8vmin;
 }
 
 .home-hero p {
@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  column-gap: 6rem;
+  column-gap: 6vmin;
   width: 100%;
   margin-top: 2rem;
   padding: 1rem;
@@ -36,8 +36,8 @@
 .home-content div {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 16rem;
+  width: 26vmin;
+  height: 26vmin;
   justify-content: flex-start;
   align-items: center;
   background-color: rgba(45, 36, 36, 1);
@@ -46,14 +46,14 @@
 }
 
 .home-content img {
-  width: 6rem;
-  height: 6rem;
+  width: 10vmin;
+  height: 10vmin;
   margin-bottom: 1rem;
 }
 
 .home-content-dot {
-  width: 4rem;
-  height: 4rem;
+  width: 6vmin;
+  height: 6vmin;
   border-radius: 50%;
   margin-top: 2rem;
   background-color: rgba(224, 192, 151, 1);

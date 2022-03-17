@@ -46,10 +46,9 @@ const LoginForm = () => {
 const LoginOption = () => {
   return (
     <div className="login-option">
-      <p>Need an account?</p>
-      <NavLink to="/register">
-        <strong>Register</strong>
-      </NavLink>
+      <NavLink to="/reset_password">Forgot Password</NavLink>
+      <p>|</p>
+      <NavLink to="/new_user">Register</NavLink>
     </div>
   );
 };

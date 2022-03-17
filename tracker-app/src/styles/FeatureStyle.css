@@ -1,0 +1,23 @@
+.app-feature {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 24rem;
+  margin: 4rem 4rem 8rem 4rem;
+}
+
+.app-feature h1 {
+  font-size: 2.5rem;
+}
+
+.app-feature p {
+  margin-bottom: 4rem;
+}
+
+.app-feature a {
+  text-decoration: underline;
+  color: red;
+  font-size: 1.2rem;
+}

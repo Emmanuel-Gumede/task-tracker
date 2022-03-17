@@ -25,7 +25,7 @@
 }
 
 .login-title img {
-  width: 4rem;
+  width: 5rem;
   margin: 1rem;
 }
 
@@ -67,17 +67,20 @@
 }
 
 .login-option {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-option a {
   text-decoration: underline;
   color: red;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .login-option p {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin: 0 0.5rem;
 }

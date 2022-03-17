@@ -24,6 +24,7 @@ const userReducer = (state, action) => {
       console.log("LOGGED_IN", payload);
       return {
         ...state,
+        userName: payload.userName,
         isLoggedIn: true,
       };
 
@@ -48,7 +49,7 @@ function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route path="new_user" element={<Register />} />
           <Route path="welcome" element={<Welcome />} />
           <Route path="tasks" element={<Tasks />}>
             <Route path="reports" element={<Reports />} />

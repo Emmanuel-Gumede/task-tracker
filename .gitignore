@@ -1,2 +1,3 @@
 tracker-app/node_modules/
 tracker-api/node_modules/
+tracker-api/*.env

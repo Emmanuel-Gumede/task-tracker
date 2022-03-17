@@ -4,13 +4,38 @@ import logoImage from "../images/logo01.png";
 import "../styles/HeaderStyle.css";
 import { AuthContext } from "../App";
 
+const date = new Date(Date.now());
+const weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const Header = () => {
   const { state } = React.useContext(AuthContext);
   console.log(state.isLoggedIn);
   return (
     <section className="app-header">
       <Logo />
-      <HeadBanner />
+      {state.isLoggedIn ? <HeaderMenu /> : <HeaderBanner />}
       {state.isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
     </section>
   );
@@ -26,7 +51,9 @@ const Logo = () => {
           <img src={logoImage} alt="logo" />
         </div>
         <div>
-          <h1>OKUHLE</h1>
+          <h1>
+            <strong>OKUHLE</strong>
+          </h1>
           <h3>Task Tracker</h3>
         </div>
       </NavLink>
@@ -34,7 +61,7 @@ const Logo = () => {
   );
 };
 
-const HeadBanner = () => {
+const HeaderBanner = () => {
   return (
     <div className="header-banner">
       <h2>No. 1 Task Management Tool</h2>
@@ -42,14 +69,29 @@ const HeadBanner = () => {
   );
 };
 
+const HeaderMenu = () => {
+  return (
+    <nav className="header-nav">
+      <ul>
+        <li> Home </li>
+        <li> Tasks </li>
+        <li> Reports </li>
+        <li> Help </li>
+      </ul>
+    </nav>
+  );
+};
+
 const LoginBtn = () => {
-  const date = new Date(Date.now());
   return (
     <div className="header-login">
       <NavLink to="/login" className="header-login-btn">
         <span>Sign In</span>
       </NavLink>
-      <div className="header-date">{date.toDateString()}</div>
+      <div className="header-date">
+        <strong>{`${weekDays[date.getDay()]}`}</strong>
+        <br /> {`${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`}
+      </div>
     </div>
   );
 };
@@ -65,7 +107,10 @@ const LogoutBtn = () => {
       <NavLink to="/" className="header-login-btn" onClick={handleClick}>
         <span>Sign Out</span>
       </NavLink>
-      <div className="header-date">{date.toDateString()}</div>
+      <div className="header-date">
+        <strong>{`${weekDays[date.getDay()]}`}</strong>
+        <br /> {`${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`}
+      </div>
     </div>
   );
 };

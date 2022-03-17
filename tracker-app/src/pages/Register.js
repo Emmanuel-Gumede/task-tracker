@@ -52,9 +52,16 @@ const RegisterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    fetch("http://127.0.0.1:5300/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: "LOGGED_IN", payload: data }));
+
     setFormData(initialValues);
-    dispatch({ type: "LOGGED_IN", payload: "" });
   };
 
   return (
