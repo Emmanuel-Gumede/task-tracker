@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logoImage from "../images/logo01.png";
 import "../styles/HeaderStyle.css";
-import { AuthContext } from "../App";
+import { AuthContext } from "../context/UserContext";
 
 const date = new Date(Date.now());
 const weekDays = [

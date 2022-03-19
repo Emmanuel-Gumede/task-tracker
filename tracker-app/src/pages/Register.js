@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import loginIcon from "../images/login01.png";
 import "../styles/RegisterStyle.css";
-import { AuthContext } from "../App";
+import { AuthContext } from "../context/UserContext";
 
 const Register = () => {
-  const { state } = React.useContext(AuthContext);
-
-  return state.isLoggedIn ? (
-    <Navigate to="/welcome" />
-  ) : (
+  return (
     <section className="app-register">
       <RegisterTitle />
       <RegisterForm />
@@ -31,6 +27,7 @@ const RegisterTitle = () => {
 
 const RegisterForm = () => {
   const { dispatch } = React.useContext(AuthContext);
+  let navigate = useNavigate();
   const initialValues = {
     fullname: "",
     email: "",
@@ -53,15 +50,21 @@ const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://127.0.0.1:5300/user", {
+    fetch("http://127.0.0.1:5300/user/user_register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
-      .then((data) => dispatch({ type: "LOGGED_IN", payload: data }));
-
-    setFormData(initialValues);
+      .then((data) => {
+        if (data.token === undefined) {
+          return;
+        } else {
+          dispatch({ type: "LOGGED_IN", payload: data });
+          setFormData(initialValues);
+          navigate("/welcome");
+        }
+      });
   };
 
   return (

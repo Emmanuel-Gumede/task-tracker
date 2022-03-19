@@ -8,36 +8,13 @@ import Tasks from "./pages/Tasks";
 import Reports from "./pages/Reports";
 import Feature from "./pages/Feature";
 import Welcome from "./pages/Welcome";
-
-export const AuthContext = React.createContext();
+import userReducer from "./reducers/userReducer";
+import { AuthContext } from "./context/UserContext";
 
 const initialState = {
-  userName: "",
+  username: "",
+  usertoken: "",
   isLoggedIn: false,
-};
-
-const userReducer = (state, action) => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case "LOGGED_IN":
-      console.log("LOGGED_IN", payload);
-      return {
-        ...state,
-        userName: payload.userName,
-        isLoggedIn: true,
-      };
-
-    case "LOGGED_OUT":
-      console.log("LOGGED_OUT", payload);
-      return {
-        ...state,
-        isLoggedIn: false,
-      };
-
-    default:
-      return state;
-  }
 };
 
 function App() {

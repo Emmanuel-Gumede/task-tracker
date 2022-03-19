@@ -6,36 +6,21 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const userRouter = require("./routes/userRoute");
 
-const user_route = require("./routes/users");
+const app = express();
 
-const HTTPserver = () => {
-  const server = express();
-  server.use(express.json());
-  server.use(cors);
-  server.use("/user", user_route);
+mongoose.connect(process.env.DB_HOST, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-  server.listen(process.env.API_PORT, () => {
-    console.log(
-      `Task Tracker API running on ${process.env.API_URL}:${process.env.API_PORT}`
-    );
-  });
-};
+app.use(cors());
+app.use(express.json());
+app.use("/user", userRouter);
 
-(function () {
-  mongoose.connect(
-    process.env.DB_HOST,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    },
-    (error, success) => {
-      if (error) {
-        console.log("dbase connection error");
-      } else if (success) {
-        console.log("Dbase connected...");
-        HTTPserver();
-      }
-    }
+app.listen(process.env.API_PORT, () => {
+  console.log(
+    `Task Tracker API running on ${process.env.API_URL}:${process.env.API_PORT}`
   );
-})();
+});

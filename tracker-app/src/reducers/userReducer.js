@@ -8,18 +8,17 @@ const userReducer = (state, action) => {
 
   switch (type) {
     case "LOGGED_IN":
-      console.log("LOGGED_IN", payload);
+      console.log(payload.token);
       return {
         ...state,
-        userName: payload.userName,
-        isLoggedIn: payload.isLoggedIn,
+        username: payload.username,
+        isLoggedIn: payload.token === undefined ? false : true,
       };
 
     case "LOGGED_OUT":
-      console.log("LOGGED_OUT", payload);
       return {
         ...state,
-        isLoggedIn: payload,
+        isLoggedIn: false,
       };
 
     default:

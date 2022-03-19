@@ -1,23 +1,3 @@
-import { createContext, useContext, useReducer } from "react";
+import React from "react";
 
-const initialState = {
-  userName: "",
-  isLoggedIn: false,
-};
-
-const UserContext = createContext(initialState);
-
-export const UserProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(useReducer, initialState);
-
-  return (
-    <UserContext.Provider value={{ state, dispatch }}>{children}</UserContext.Provider>
-  );
-};
-
-const useUser = () => {
-  const context = useContext(UserContext);
-  return context;
-};
-
-export default useUser;
+export const AuthContext = React.createContext();
