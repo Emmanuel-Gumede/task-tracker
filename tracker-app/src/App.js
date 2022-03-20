@@ -15,6 +15,8 @@ const initialState = {
   username: "",
   usertoken: "",
   isLoggedIn: false,
+  tasks: [],
+  showTaskForm: false,
 };
 
 function App() {

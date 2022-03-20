@@ -1,0 +1,128 @@
+.task-body {
+  min-height: 60vmin;
+  display: grid;
+  grid-template-columns: 84% 15%;
+  grid-template-areas: "tasklist ctrlPanel";
+  column-gap: 1rem;
+}
+
+.task-control {
+  grid-area: ctrlPanel;
+  display: flex;
+  margin: 1rem 0;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: rgba(245, 121, 0, 1);
+  padding: 1rem;
+}
+
+.task-control button {
+  width: 8rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.task-table-header {
+  grid-area: tasklist;
+  display: grid;
+  grid-template-columns: 4fr 3fr 2fr 2fr 1fr;
+  column-gap: 0.5rem;
+  margin: 1rem 0;
+  align-items: flex-start;
+}
+
+.task-table-body {
+  grid-area: tasklist;
+  margin-top: 3rem;
+}
+
+.task-table-data {
+  display: grid;
+  grid-template-columns: 4fr 3fr 2fr 2fr 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-auto-rows: auto;
+  column-gap: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.task-table-header div {
+  display: flex;
+  background-color: rgba(45, 36, 36, 1);
+  color: rgba(255, 255, 255, 1);
+  min-height: 3vmin;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.create-task-overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(49, 49, 49, 0.8);
+}
+
+.create-task-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 4rem auto;
+  background-color: rgba(245, 121, 0, 1);
+  border: 1px solid rgba(45, 36, 36, 1);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.create-task-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.create-task-title button {
+  width: 4vmin;
+}
+
+.create-task-form div {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 1rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.create-task-form label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.create-task-form input {
+  height: 2rem;
+}
+
+.create-task-form button {
+  width: 10rem;
+  height: 2.5rem;
+  margin: 2rem auto;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.update-task-btn {
+  width: 100%;
+}
+
+.task-progress-bar {
+  height: 1.2rem;
+  border: 1px solid rgba(45, 36, 36, 1);
+}
+
+.task-progress-bar div {
+  width: 5%;
+  height: 100%;
+  background-color: rgba(45, 36, 36, 1);
+}

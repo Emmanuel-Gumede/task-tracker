@@ -31,7 +31,6 @@ const months = [
 
 const Header = () => {
   const { state } = React.useContext(AuthContext);
-  console.log(state.isLoggedIn);
   return (
     <section className="app-header">
       <Logo />

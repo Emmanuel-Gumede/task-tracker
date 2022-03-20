@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const mongoose = require("mongoose");
 const User = require("../models/userModel");
 
 const userRegister = async (req, res, next) => {
