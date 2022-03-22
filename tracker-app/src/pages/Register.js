@@ -31,7 +31,6 @@ const RegisterForm = () => {
   const initialValues = {
     fullname: "",
     email: "",
-    username: "",
     password: "",
     confirmPwd: "",
   };
@@ -57,13 +56,9 @@ const RegisterForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.token === undefined) {
-          return;
-        } else {
-          dispatch({ type: "LOGGED_IN", payload: data });
-          setFormData(initialValues);
-          navigate("/welcome");
-        }
+        dispatch({ type: "LOGGED_IN", payload: data });
+        setFormData(initialValues);
+        navigate("/welcome");
       });
   };
 
@@ -83,24 +78,12 @@ const RegisterForm = () => {
       </div>
       <div>
         <label htmlFor="email">
-          <strong>E-MAIL:</strong>
+          <strong>E-MAIL ADDRESS:</strong>
         </label>
         <input
           type="text"
           name="email"
           value={formData.email}
-          onChange={handleInput}
-          autoComplete="off"
-        />
-      </div>
-      <div>
-        <label htmlFor="username">
-          <strong>USERNAME:</strong>
-        </label>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
           onChange={handleInput}
           autoComplete="off"
         />

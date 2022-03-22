@@ -2,10 +2,13 @@ const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema(
   {
-    userId: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
-    title: { type: String },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
+    task: { type: String },
     details: { type: String },
-    progress: [{ type: String }],
+    progress: {
+      type: String,
+      default: "0",
+    },
     subTasks: [{ type: mongoose.Schema.Types.ObjectId, ref: "subtasks" }],
     startDate: { type: Date },
     dueDate: { type: Date },

@@ -1,6 +1,10 @@
 export const initialState = {
-  userName: "",
+  user: "",
   isLoggedIn: false,
+  tasks: [],
+  oneTask: "",
+  showTaskForm: false,
+  showOneTask: false,
 };
 
 const userReducer = (state, action) => {
@@ -8,16 +12,16 @@ const userReducer = (state, action) => {
 
   switch (type) {
     case "LOGGED_IN":
-      console.log(payload.token);
       return {
         ...state,
-        username: payload.username,
-        isLoggedIn: payload.token === undefined ? false : true,
+        user: payload,
+        isLoggedIn: payload.accessToken === undefined ? false : true,
       };
 
     case "LOGGED_OUT":
       return {
         ...state,
+        user: "",
         isLoggedIn: false,
       };
 
@@ -37,6 +41,13 @@ const userReducer = (state, action) => {
       return {
         ...state,
         tasks: payload,
+      };
+
+    case "SHOW_ONE_TASK":
+      return {
+        ...state,
+        oneTask: payload.task,
+        showOneTask: payload.modal,
       };
 
     default:

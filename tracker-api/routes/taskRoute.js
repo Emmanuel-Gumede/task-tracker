@@ -1,8 +1,8 @@
 const { getTasks, newTask } = require("../controllers/taskController");
-
+const { protect } = require("../middleware/authorize");
 const taskRoute = require("express").Router();
 
-taskRoute.get("/all_tasks", getTasks);
-taskRoute.post("/new_task", newTask);
+taskRoute.post("/all_tasks", getTasks);
+taskRoute.post("/new_task", protect, newTask);
 
 module.exports = taskRoute;

@@ -26,12 +26,13 @@ const LoginTitle = () => {
 };
 
 const LoginForm = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
   const initialValues = {
-    username: "",
+    email: "",
     password: "",
   };
-  const { dispatch } = React.useContext(AuthContext);
+  const { state, dispatch } = React.useContext(AuthContext);
   const [formData, setFormData] = useState(initialValues);
 
   const handleInput = (e) => {
@@ -48,18 +49,17 @@ const LoginForm = () => {
 
     fetch("http://127.0.0.1:5300/user/user_login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + state.user.accessToken,
+      },
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.token === undefined) {
-          return;
-        } else {
-          dispatch({ type: "LOGGED_IN", payload: data });
-          setFormData(initialValues);
-          navigate("/welcome");
-        }
+        dispatch({ type: "LOGGED_IN", payload: data });
+        setFormData(initialValues);
+        navigate("/welcome");
       });
   };
 
@@ -67,11 +67,11 @@ const LoginForm = () => {
     <form className="login-form" onSubmit={handleSubmit}>
       <div>
         <label>
-          <strong>USERNAME:</strong>
+          <strong>E-MAIL ADDRESS:</strong>
         </label>
         <input
           type="text"
-          name="username"
+          name="email"
           value={formData.username}
           onChange={handleInput}
           autoComplete="off"

@@ -10,14 +10,8 @@ import Feature from "./pages/Feature";
 import Welcome from "./pages/Welcome";
 import userReducer from "./reducers/userReducer";
 import { AuthContext } from "./context/UserContext";
-
-const initialState = {
-  username: "",
-  usertoken: "",
-  isLoggedIn: false,
-  tasks: [],
-  showTaskForm: false,
-};
+import { initialState } from "./reducers/userReducer";
+import LoggedIn from "./Registered";
 
 function App() {
   const [state, dispatch] = React.useReducer(userReducer, initialState);
@@ -29,9 +23,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="new_user" element={<Register />} />
-          <Route path="welcome" element={<Welcome />} />
-          <Route path="tasks" element={<Tasks />}>
-            <Route path="reports" element={<Reports />} />
+          <Route element={<LoggedIn />}>
+            <Route path="welcome" element={<Welcome />} />
+            <Route path="tasks" element={<Tasks />}>
+              <Route path="reports" element={<Reports />} />
+            </Route>
           </Route>
           <Route path="feature" element={<Feature />} />
         </Route>
